@@ -9,7 +9,7 @@ const components = {
         bg: 'blue.500',
         color: 'whiteAlpha.800',
         _hover: {
-          bg: 'blue.200',
+          bg: 'blue.400',
           color: 'gray.800'
         }
       }

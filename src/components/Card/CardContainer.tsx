@@ -4,7 +4,7 @@ import { Box, useColorModeValue } from '@chakra-ui/core';
 
 const CardContainer = ({ children, ...props }: React.PropsWithChildren<ChakraStyleProps>) => (
   <Box
-    bg={useColorModeValue('gray.100', 'gray.400')}
+    bg={useColorModeValue('gray.100', 'gray.500')}
     cursor="pointer"
     mb="2"
     px="4"
