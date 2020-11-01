@@ -11,7 +11,7 @@ const CardContainer = ({ children, ...props }: React.PropsWithChildren<ChakraSty
     py="2"
     maxWidth="300px"
     borderRadius="3px"
-    boxShadow="md"
+    boxShadow="base"
     {...props}
   >
     {children}

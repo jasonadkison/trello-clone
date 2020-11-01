@@ -1,5 +1,7 @@
 import React from 'react';
 
+import AddNewItem from '../AddNewItem';
+
 import ColumnContainer from './ColumnContainer';
 import ColumnTitle from './ColumnTitle';
 
@@ -12,6 +14,10 @@ const Column = ({ title, children }: React.PropsWithChildren<ColumnProps>) => {
     <ColumnContainer>
       <ColumnTitle>{title}</ColumnTitle>
       {children}
+      <AddNewItem
+        toggleButtonText="+ Add another item"
+        onAdd={(title) => console.log('create list', title)}
+      />
     </ColumnContainer>
   );
 }
