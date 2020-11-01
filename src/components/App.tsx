@@ -9,7 +9,7 @@ import Column from './Column';
 import AddNewItem from './AddNewItem';
 
 function App() {
-  const { state: { lists } } = useAppState();
+  const { state: { lists }, dispatch } = useAppState();
 
   return (
     <ChakraProvider theme={theme}>
@@ -20,7 +20,7 @@ function App() {
         <AddNewItem
           toggleButtonText="+ Add another list"
           toggleButtonProps={{ variant: 'blue' }}
-          onAdd={(title) => console.log('create list', title)}
+          onAdd={(title) => dispatch({ type: 'CREATE_LIST', payload: title })}
         />
       </AppContainer>
     </ChakraProvider>

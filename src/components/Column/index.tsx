@@ -13,7 +13,7 @@ interface ColumnProps {
 }
 
 const Column = ({ title, index }: ColumnProps) => {
-  const { state: { lists } } = useAppState();
+  const { state: { lists }, dispatch } = useAppState();
   return (
     <ColumnContainer>
       <ColumnTitle>{title}</ColumnTitle>
@@ -21,8 +21,10 @@ const Column = ({ title, index }: ColumnProps) => {
         <Card key={task.id} title={task.title}></Card>
       ))}
       <AddNewItem
-        toggleButtonText="+ Add another item"
-        onAdd={(title) => console.log('create list', title)}
+        toggleButtonText="+ Add another task"
+        onAdd={(title) => {
+          dispatch({ type: 'CREATE_TASK', payload: { title, listId: lists[index].id } });
+        }}
       />
     </ColumnContainer>
   );
