@@ -2,28 +2,21 @@ import React from 'react';
 import { ChakraProvider } from '@chakra-ui/core';
 
 import theme from '../theme';
+import { useAppState } from '../contexts/AppStateContext';
+
 import AppContainer from './AppContainer';
 import Column from './Column';
-import Card from './Card';
 import AddNewItem from './AddNewItem';
 
 function App() {
-  console.log(theme);
+  const { state: { lists } } = useAppState();
+
   return (
     <ChakraProvider theme={theme}>
       <AppContainer>
-        <Column title="To Do">
-          <Card title="Add app state"></Card>
-          <Card title="Add new card form"></Card>
-        </Column>
-        <Column title="In Progress">
-          <Card title="Mockup Column Component"></Card>
-          <Card title="Mockup Card Component"></Card>
-        </Column>
-        <Column title="Done">
-          <Card title="Scaffold app via CRA"></Card>
-          <Card title="Add chakra-ui"></Card>
-        </Column>
+        {lists.map((list, index) => (
+          <Column key={list.id} title={list.title} index={index} />
+        ))}
         <AddNewItem
           toggleButtonText="+ Add another list"
           toggleButtonProps={{ variant: 'blue' }}
